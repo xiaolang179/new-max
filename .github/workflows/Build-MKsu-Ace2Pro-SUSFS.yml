@@ -41,6 +41,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Manual disk expansion
+        run: |
+         sudo fallocate -l 3G /swapfile
+         sudo chmod 600 /swapfile
+         sudo mkswap /swapfile
+         sudo swapon /swapfile
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
