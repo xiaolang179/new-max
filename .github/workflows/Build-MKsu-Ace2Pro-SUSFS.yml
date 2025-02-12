@@ -42,15 +42,15 @@ jobs:
 
     steps:
       - name: Maximize build space
-  uses: easimon/maximize-build-space@master
-  with:
-    root-reserve-mb: 4096  
-    temp-reserve-mb: 4096  
-    overprovision-lvm: true  
-    remove-dotnet: 'true'
-    remove-android: 'true'
-    remove-haskell: 'true'
-    remove-codeql: 'true'
+        uses: easimon/maximize-build-space@master
+        with:
+         root-reserve-mb: 4096  # 减小到 4GB
+         temp-reserve-mb: 4096  # 减小到 4GB
+         overprovision-lvm: true  # 启用 LVM 过分配
+         remove-dotnet: 'true'
+         remove-android: 'true'
+         remove-haskell: 'true'
+         remove-codeql: 'true'
 
       - name: Configure Git
         run: |
